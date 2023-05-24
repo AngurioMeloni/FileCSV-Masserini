@@ -139,9 +139,9 @@
             // listView1
             // 
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(399, 41);
+            this.listView1.Location = new System.Drawing.Point(331, 41);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(343, 329);
+            this.listView1.Size = new System.Drawing.Size(457, 397);
             this.listView1.TabIndex = 10;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
