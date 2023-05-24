@@ -23,7 +23,8 @@ namespace FileCSV_Masserini
         public string fileName1 = @"masserini.csv";
         public int i = 0;
         public string n;
-        public char de = ';';   
+        public char de = ';'; 
+        public int contatore = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -36,6 +37,11 @@ namespace FileCSV_Masserini
         private void button1_Click(object sender, EventArgs e)
         {
             Istruzione1();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Il numero di campi è: " + Istruzione2());
         }
 
         #endregion
@@ -55,13 +61,21 @@ namespace FileCSV_Masserini
                 else
                 {
                     int Nr = r.Next(10, 21);
-                    writer.WriteLine(n + de + Nr + de + "true");
+                    writer.WriteLine(n + de + Nr + de + "false");
                 }
                 i++;
                 n = reader.ReadLine();
             }
             writer.Close();
             reader.Close();
+        }
+        private int Istruzione2()
+        {
+            StreamReader reader = new StreamReader(fileName);
+            n = reader.ReadLine();
+            reader.Close();
+            contatore = n.Split(';').Length;
+            return contatore;
         }
 
         #endregion
