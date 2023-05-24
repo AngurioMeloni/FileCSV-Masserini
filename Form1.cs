@@ -60,6 +60,10 @@ namespace FileCSV_Masserini
                 listView1.Items.Add(MaxC[i].ToString());
             }
         }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Istruzione4();
+        }
 
         #endregion
 
@@ -115,6 +119,7 @@ namespace FileCSV_Masserini
             reader.Close();
             return LMn;
         }
+
         private int [] Istruzione3A() 
         {
             StreamReader reader = new StreamReader(fileName);
@@ -149,6 +154,30 @@ namespace FileCSV_Masserini
             reader.Close();
             return LMassima;
         }
+
+        private void Istruzione4()
+        {
+            StreamReader reader = new StreamReader(fileName);
+            StreamWriter writer = new StreamWriter("appoggio.csv");
+            n = reader.ReadLine();
+            while(n != null)
+            {
+                if(i != 0)
+                {
+                    writer.WriteLine(n.PadRight(70));
+                }
+                else
+                {
+                    writer.WriteLine(n);
+                }
+                i++;
+                n = reader.ReadLine();
+            }
+            reader.Close();
+            writer.Close();
+
+            File.Replace("appoggio.csv", fileName, "backup.csv");
+        }   
 
         #endregion
 
