@@ -27,6 +27,7 @@ namespace FileCSV_Masserini
         public int contatore = 0;
         public int LMn = 0, Ln = 0;
         public int ad = 0;
+        public int tempo;
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -51,7 +52,13 @@ namespace FileCSV_Masserini
         }
         private void button4_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Il numero di caratteri è: " + Istruzione3A());
+            listView1.Clear();
+            int[] MaxC = new int[contatore];
+            MaxC = Istruzione3A();
+            for (int i = 0; i < contatore; i++)
+            {
+                listView1.Items.Add(MaxC[i].ToString());
+            }
         }
 
         #endregion
