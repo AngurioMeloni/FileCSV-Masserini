@@ -25,6 +25,8 @@ namespace FileCSV_Masserini
         public string n;
         public char de = ';'; 
         public int contatore = 0;
+        public int LMn = 0, Ln = 0;
+        public int ad = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -42,6 +44,14 @@ namespace FileCSV_Masserini
         private void button2_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Il numero di campi è: " + Istruzione2());
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Il numero di caratteri è: " + Istruzione3());
+        }
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Il numero di caratteri è: " + Istruzione3A());
         }
 
         #endregion
@@ -76,6 +86,61 @@ namespace FileCSV_Masserini
             reader.Close();
             contatore = n.Split(';').Length;
             return contatore;
+        }
+
+        private int Istruzione3()
+        {
+            StreamReader reader = new StreamReader(fileName);
+            n = reader.ReadLine();
+            while (n != null)
+            {
+                Ln = n.Length;
+                if (i != 0)
+                {
+                    if (LMn < Ln)
+                    {
+                        LMn = n.Length;
+                    }
+                }
+                i++;
+                n = reader.ReadLine();
+            }
+            reader.Close();
+            return LMn;
+        }
+        private int [] Istruzione3A() 
+        {
+            StreamReader reader = new StreamReader(fileName);
+            n = reader.ReadLine();
+            int[] LMassima = new int[contatore];
+            n = reader.ReadLine();
+            while(n != null)
+            {
+                string[]split = n.Split(';');
+                string[]array = new string[contatore];
+                for(int i = 0; i < contatore; i++)
+                {
+                    reader.DiscardBufferedData();
+                    reader.BaseStream.Seek(0, SeekOrigin.Begin);
+                    n = reader.ReadLine();
+                    ad = 0;
+                    while(n != null)
+                    {
+                        string[] stringaSplit = n.Split(';');
+                        if(ad != 0)
+                        {
+                            if (LMassima[i] < stringaSplit[i].Length)
+                            {
+                                LMassima[i] = stringaSplit[i].Length;
+                            }                          
+                        }
+                        ad++;
+                        n = reader.ReadLine();
+                    }
+                }
+            }
+            reader.Close();
+            return LMassima;
         }
 
         #endregion
