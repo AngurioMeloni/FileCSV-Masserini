@@ -53,6 +53,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -158,9 +159,10 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(254, 28);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(347, 84);
+            this.listView1.Size = new System.Drawing.Size(633, 152);
             this.listView1.TabIndex = 10;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.List;
             // 
             // groupBox1
             // 
@@ -177,7 +179,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(133, 128);
+            this.groupBox1.Location = new System.Drawing.Point(210, 215);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(763, 151);
             this.groupBox1.TabIndex = 11;
@@ -291,11 +293,21 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Anno";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(343, 12);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(397, 16);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Stampa della lunghezza dei record e stampa dei 3 record a scelta";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1087, 450);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.button10);
@@ -314,6 +326,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -344,6 +357,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label7;
     }
 }
 

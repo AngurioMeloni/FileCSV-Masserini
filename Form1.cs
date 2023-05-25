@@ -221,19 +221,19 @@ namespace FileCSV_Masserini
         {
             StreamReader reader = new StreamReader(fileName);
             n = reader.ReadLine();
-            while(n != null)
+            while (n != null)
             {
                 String[] Split = n.Split(';');
-                if (Split[6] == "false")
+                if (Split[5] == "false")
                 {
-                    listView1.Items.Add("Visualizzazione di Tre campi" + Split[0] + Split[1] + Split[4]);           
+                    listView1.Items.Add(Split[0]+ de + Split[1] + de + Split[2]);
                 }
                 n = reader.ReadLine();
                 i++;
             }
-            reader.Close(); 
+            reader.Close();
         }
-        
+
         #endregion
 
     }
