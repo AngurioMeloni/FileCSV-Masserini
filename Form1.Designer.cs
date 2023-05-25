@@ -54,7 +54,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button12 = new System.Windows.Forms.Button();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -109,7 +113,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(12, 128);
+            this.button6.Location = new System.Drawing.Point(12, 177);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(115, 23);
             this.button6.TabIndex = 5;
@@ -119,7 +123,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(12, 157);
+            this.button7.Location = new System.Drawing.Point(12, 206);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(115, 23);
             this.button7.TabIndex = 6;
@@ -129,16 +133,17 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(12, 186);
+            this.button8.Location = new System.Drawing.Point(12, 296);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(115, 23);
             this.button8.TabIndex = 7;
             this.button8.Text = "Funzione 7";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(12, 215);
+            this.button9.Location = new System.Drawing.Point(12, 394);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(115, 23);
             this.button9.TabIndex = 8;
@@ -147,7 +152,7 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(12, 244);
+            this.button10.Location = new System.Drawing.Point(12, 467);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(115, 23);
             this.button10.TabIndex = 9;
@@ -159,7 +164,7 @@
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(254, 28);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(633, 152);
+            this.listView1.Size = new System.Drawing.Size(486, 94);
             this.listView1.TabIndex = 10;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
@@ -179,9 +184,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(210, 215);
+            this.groupBox1.Location = new System.Drawing.Point(133, 128);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(763, 151);
+            this.groupBox1.Size = new System.Drawing.Size(763, 111);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -221,7 +226,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(335, 116);
+            this.button11.Location = new System.Drawing.Point(335, 78);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(101, 23);
             this.button11.TabIndex = 8;
@@ -296,17 +301,47 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(343, 12);
+            this.label7.Location = new System.Drawing.Point(296, 12);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(397, 16);
             this.label7.TabIndex = 12;
             this.label7.Text = "Stampa della lunghezza dei record e stampa dei 3 record a scelta";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.button12);
+            this.groupBox2.Location = new System.Drawing.Point(133, 245);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(160, 113);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Visible = false;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(42, 76);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(75, 23);
+            this.button12.TabIndex = 0;
+            this.button12.Text = "Ricerca";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(30, 39);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 22);
+            this.textBox7.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1087, 450);
+            this.ClientSize = new System.Drawing.Size(1530, 502);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listView1);
@@ -325,6 +360,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,6 +395,9 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button button12;
     }
 }
 

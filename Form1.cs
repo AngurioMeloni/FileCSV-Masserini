@@ -21,16 +21,10 @@ namespace FileCSV_Masserini
         public Random r = new Random();
         public string fileName = @"masserini1.csv";
         public string fileName1 = @"masserini.csv";
-        public int i = 0;
-        public string n;
+        public string n,anno, nazione, note,p;
         public char de = ';'; 
-        public int contatore = 0;
-        public int LMn = 0, Ln = 0;
-        public int ad = 0;
-        public int tempo;
-        public string anno, nazione,note;
+        public int LMn = 0, Ln = 0, tempo, VRandom, ad = 0, contatore = 0, i = 0;
         public float MKwh;
-        public int VRandom;
         public bool Vbooleano;
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -72,6 +66,7 @@ namespace FileCSV_Masserini
         {
             groupBox1.Show();
         }
+
         private void button11_Click(object sender, EventArgs e)
         {
             anno = textBox1.Text;
@@ -79,8 +74,30 @@ namespace FileCSV_Masserini
             MKwh = float.Parse(textBox3.Text);
             note = textBox4.Text;
             int VRandom = int.Parse(textBox5.Text);
-            bool Vbooleano = bool.Parse(textBox6.Text);           
+            bool Vbooleano = bool.Parse(textBox6.Text);
             Istruzione5();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Istruzione6();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            groupBox2.Show();
+        }
+        private void button12_Click(object sender, EventArgs e)
+        {
+            int Valore = Istruzione7(textBox7.Text);
+            if(Valore != -1)
+            {
+                MessageBox.Show("Il tuo valore è stato trovato alla riga: " + Valore);
+            }
+            else
+            {
+                MessageBox.Show("La ricerca non ha avuto successo");
+            }
         }
 
         #endregion
@@ -173,11 +190,6 @@ namespace FileCSV_Masserini
             return LMassima;
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            Istruzione6();
-        }
-
         private void Istruzione4()
         {
             StreamReader reader = new StreamReader(fileName);
@@ -232,6 +244,26 @@ namespace FileCSV_Masserini
                 i++;
             }
             reader.Close();
+        }
+
+        private int Istruzione7(int Valore)
+        { 
+            StreamReader reader = new StreamReader(fileName);
+            n = reader.ReadLine();
+            i = 0;
+            while(n != null)
+            {
+                String[] split = n.Split(';');
+                String[] split1 = split[Istruzione2() - 1].Split(' ');
+                if (split1[0] == p)
+                {
+                    return i;
+                }
+                n = reader.ReadLine();
+                i++;
+            }
+            reader.Close();
+            return -1;
         }
 
         #endregion
