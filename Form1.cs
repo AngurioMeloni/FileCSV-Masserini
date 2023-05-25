@@ -28,6 +28,10 @@ namespace FileCSV_Masserini
         public int LMn = 0, Ln = 0;
         public int ad = 0;
         public int tempo;
+        public string anno, nazione,note;
+        public float MKwh;
+        public int VRandom;
+        public bool Vbooleano;
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -60,9 +64,23 @@ namespace FileCSV_Masserini
                 listView1.Items.Add(MaxC[i].ToString());
             }
         }
-        private void button6_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
             Istruzione4();
+        }
+        private void button6_Click(object sender, EventArgs e)
+        {
+            groupBox1.Show();
+        }
+        private void button11_Click(object sender, EventArgs e)
+        {
+            anno = textBox1.Text;
+            nazione = textBox2.Text;
+            MKwh = float.Parse(textBox3.Text);
+            note = textBox4.Text;
+            int VRandom = int.Parse(textBox5.Text);
+            bool Vbooleano = bool.Parse(textBox6.Text);           
+            Istruzione5();
         }
 
         #endregion
@@ -155,6 +173,11 @@ namespace FileCSV_Masserini
             return LMassima;
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Istruzione6();
+        }
+
         private void Istruzione4()
         {
             StreamReader reader = new StreamReader(fileName);
@@ -175,10 +198,42 @@ namespace FileCSV_Masserini
             }
             reader.Close();
             writer.Close();
-
             File.Replace("appoggio.csv", fileName, "backup.csv");
         }   
 
+        private void Istruzione5()
+        {
+            StreamReader reader = new StreamReader(fileName);
+            StreamWriter writer = new StreamWriter("appoggio.csv");
+            n = reader.ReadLine();
+            while(n != null)
+            {
+                writer.WriteLine(n);
+                n = reader.ReadLine();
+            }
+            writer.WriteLine(anno + de + nazione + de + MKwh + de + note + de + VRandom + de + Vbooleano);
+            writer.Close();
+            reader.Close();
+            File.Replace("appoggio.csv", fileName, "backup.csv");
+        }
+
+        private void Istruzione6()
+        {
+            StreamReader reader = new StreamReader(fileName);
+            n = reader.ReadLine();
+            while(n != null)
+            {
+                String[] Split = n.Split(';');
+                if (Split[6] == "false")
+                {
+                    listView1.Items.Add("Visualizzazione di Tre campi" + Split[0] + Split[1] + Split[4]);           
+                }
+                n = reader.ReadLine();
+                i++;
+            }
+            reader.Close(); 
+        }
+        
         #endregion
 
     }
