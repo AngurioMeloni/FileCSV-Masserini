@@ -40,6 +40,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button13 = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,8 +56,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button12 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.button12 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -143,16 +144,17 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(12, 394);
+            this.button9.Location = new System.Drawing.Point(12, 325);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(115, 23);
             this.button9.TabIndex = 8;
             this.button9.Text = "Funzione 8";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(12, 467);
+            this.button10.Location = new System.Drawing.Point(12, 390);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(115, 23);
             this.button10.TabIndex = 9;
@@ -162,15 +164,16 @@
             // listView1
             // 
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(254, 28);
+            this.listView1.Location = new System.Drawing.Point(286, 31);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(486, 94);
+            this.listView1.Size = new System.Drawing.Size(426, 91);
             this.listView1.TabIndex = 10;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button13);
             this.groupBox1.Controls.Add(this.textBox6);
             this.groupBox1.Controls.Add(this.textBox5);
             this.groupBox1.Controls.Add(this.label6);
@@ -191,6 +194,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             this.groupBox1.Visible = false;
+            // 
+            // button13
+            // 
+            this.button13.Location = new System.Drawing.Point(393, 78);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(107, 23);
+            this.button13.TabIndex = 13;
+            this.button13.Text = "Modifica";
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // textBox6
             // 
@@ -226,7 +239,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(335, 78);
+            this.button11.Location = new System.Drawing.Point(266, 78);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(101, 23);
             this.button11.TabIndex = 8;
@@ -313,28 +326,28 @@
             this.groupBox2.Controls.Add(this.button12);
             this.groupBox2.Location = new System.Drawing.Point(133, 245);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(160, 113);
+            this.groupBox2.Size = new System.Drawing.Size(160, 87);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             this.groupBox2.Visible = false;
             // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(30, 21);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(100, 22);
+            this.textBox7.TabIndex = 1;
+            // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(42, 76);
+            this.button12.Location = new System.Drawing.Point(40, 51);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(75, 23);
             this.button12.TabIndex = 0;
             this.button12.Text = "Ricerca";
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(30, 39);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 22);
-            this.textBox7.TabIndex = 1;
             // 
             // Form1
             // 
@@ -398,6 +411,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
     }
 }
 

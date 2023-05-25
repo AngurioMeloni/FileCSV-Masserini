@@ -21,9 +21,9 @@ namespace FileCSV_Masserini
         public Random r = new Random();
         public string fileName = @"masserini1.csv";
         public string fileName1 = @"masserini.csv";
-        public string n,anno, nazione, note,p;
+        public string n,anno, nazione, note;
         public char de = ';'; 
-        public int LMn = 0, Ln = 0, tempo, VRandom, ad = 0, contatore = 0, i = 0;
+        public int LMn = 0, Ln = 0, tempo, VRandom, ad = 0, contatore = 0, i = 0,L;
         public float MKwh;
         public bool Vbooleano;
         private void Form1_Load(object sender, EventArgs e)
@@ -73,8 +73,8 @@ namespace FileCSV_Masserini
             nazione = textBox2.Text;
             MKwh = float.Parse(textBox3.Text);
             note = textBox4.Text;
-            int VRandom = int.Parse(textBox5.Text);
-            bool Vbooleano = bool.Parse(textBox6.Text);
+            VRandom = int.Parse(textBox5.Text);
+            Vbooleano = bool.Parse(textBox6.Text);
             Istruzione5();
         }
 
@@ -87,17 +87,34 @@ namespace FileCSV_Masserini
         {
             groupBox2.Show();
         }
+
         private void button12_Click(object sender, EventArgs e)
         {
-            int Valore = Istruzione7(textBox7.Text);
-            if(Valore != -1)
+            L = Istruzione7(textBox7.Text);
+            if(L != -1)
             {
-                MessageBox.Show("Il tuo valore è stato trovato alla riga: " + Valore);
+                MessageBox.Show("Il tuo valore è stato trovato alla riga: " + L );
             }
             else
             {
                 MessageBox.Show("La ricerca non ha avuto successo");
             }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            groupBox1.Show();
+        }
+        private void button13_Click(object sender, EventArgs e)
+        {
+            anno = textBox1.Text;
+            nazione = textBox2.Text;
+            MKwh = float.Parse(textBox3.Text);
+            note = textBox4.Text;
+            VRandom = int.Parse(textBox5.Text);
+            Vbooleano = bool.Parse(textBox6.Text);
+            int riga = Istruzione7(textBox7.Text);
+            Istruzione8();
         }
 
         #endregion
@@ -246,25 +263,83 @@ namespace FileCSV_Masserini
             reader.Close();
         }
 
-        private int Istruzione7(int Valore)
+        private int Istruzione7(string p)
         { 
             StreamReader reader = new StreamReader(fileName);
             n = reader.ReadLine();
             i = 0;
             while(n != null)
             {
-                String[] split = n.Split(';');
-                String[] split1 = split[Istruzione2() - 1].Split(' ');
-                if (split1[0] == p)
+                String[] split1 = n.Split(';');
+                if (split1[2] == p)
                 {
+                    reader.Close();
                     return i;
                 }
                 n = reader.ReadLine();
                 i++;
             }
-            reader.Close();
             return -1;
         }
+        private void Istruzione8()
+        {
+            StreamReader reader = new StreamReader(fileName);
+            StreamWriter writer = new StreamWriter("appoggio.csv", false);
+            n = reader.ReadLine();
+            i = 0;
+            L = Istruzione7(textBox7.Text);
+            while(n != null)
+            {
+                if(i == 0)
+                {
+                    writer.WriteLine(n);
+                }
+                else
+                {
+                    string[] split = n.Split(';');
+                    int riga = int.Parse(split[2]);
+                    if (riga == L)
+                    {
+                        writer.WriteLine(anno + de + nazione + de + MKwh + de + note + de + VRandom + de + Vbooleano);
+                    }
+                    else
+                    {
+                        writer.WriteLine(n);
+                    }
+                }
+                i++;
+                n = reader.ReadLine();  
+            }
+            reader.Close();
+            writer.Close();
+
+            File.Replace("appoggio.csv", fileName, "backup.csv");   
+        }
+        private void Istruzione9(int riga,string ricerca)
+        {
+            i = 0;
+            riga = Istruzione7(ricerca);
+            StreamReader reader = new StreamReader(fileName);
+            StreamWriter writer = new StreamWriter("appoggio.csv", false);
+            n = reader.ReadLine(); 
+            while(n != null)
+            {
+                String[] split = n.Split(';');
+                if (split[0] == riga.ToString())
+                {
+                    writer.WriteLine(split[0], split[1], split[2], split[3], split[4], split[5]);
+                }
+                else
+                {
+                    writer.WriteLine(n);
+                }
+                i++;
+                n = reader.ReadLine();
+            }
+            reader.Close();
+            writer.Close();
+        }
+
 
         #endregion
 
